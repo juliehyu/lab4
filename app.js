@@ -9,11 +9,14 @@ var path = require('path');
 var handlebars = require('express3-handlebars')
 
 var index = require('./routes/index');
+var project = require('./routes/project');
 var hello = require('./routes/hello');
 // Example route
 // var user = require('./routes/user');
 
 var app = express();
+app.get('/', index.view);
+app.get('/project/:name', project.viewProject);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
